@@ -30,7 +30,10 @@
       <h2>{{ movie.title }}</h2>
       <p>{{ movie.year }}</p>
       <p>{{ movie.plot }}</p>
-      <p>{{ movie.genres }}</p>
+      <p style="display: inline; font-weight:700;">Genres:</p>
+      <!-- <p v-for="genre in movie.genre_names" v-bind:key="genre">{{ genre }}</p>  -->
+      <p v-for="genre in movie.genres" v-bind:key="genre.id">{{ genre.name }}</p>
+
       <button v-on:click="showMovie(movie)">More Info!</button>
     </div>
 
@@ -80,6 +83,7 @@ export default {
     return {
       message: "The Movie App",
       movies: [],
+      genres: [],
       newMovieTitle: "",
       newMovieYear: "",
       newMoviePlot: "",
