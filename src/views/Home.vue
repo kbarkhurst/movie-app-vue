@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="top" class="home">
     <h1>{{ message }}</h1>
     <ul
       v-if="errors.length"
@@ -114,7 +114,7 @@ export default {
         plot: this.newMoviePlot,
       };
       axios
-        .post("/api/movies", params)
+        .post("/api/movies/#top", params)
         .then((response) => {
           console.log(response.data);
           this.movies.push(response.data);
