@@ -30,7 +30,7 @@
       <h2>{{ movie.title }}</h2>
       <p>{{ movie.year }}</p>
       <p>{{ movie.plot }}</p>
-      <p style="display: inline; font-weight:700;">Genres:</p>
+      <p style="display: inline; font-weight: 700">Genres:</p>
       <!-- <p v-for="genre in movie.genre_names" v-bind:key="genre">{{ genre }}</p>  -->
       <p v-for="genre in movie.genres" v-bind:key="genre.id">{{ genre.name }}</p>
 
@@ -81,7 +81,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "The Movie App",
+      message: "The Movie - Single Page App",
       movies: [],
       genres: [],
       newMovieTitle: "",
