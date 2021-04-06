@@ -1,6 +1,31 @@
 <template>
-  <div id="top" class="home">
-    <h1>{{ message }}</h1>
+  <div class="home">
+    <div class="bg-light p-5 m-3">
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-center">
+          <div class="ratio ratio-16x9">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/qM79_itR0Nc"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h1 class="display-4">Welcome to Movie Phone</h1>
+          <p class="lead">This is a simple-to-use web app for adding and cataloging your favorite movies.</p>
+          <hr class="my-4" />
+          <!-- <p>You can add, edit and explore movies.</p> -->
+          <a class="btn btn-primary btn-lg" href="/movies" role="button">Check It Out!</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <h1>{{ message }}</h1>
     <ul
       v-if="errors.length"
       style="
@@ -31,7 +56,7 @@
       <p>{{ movie.year }}</p>
       <p>{{ movie.plot }}</p>
       <p style="display: inline; font-weight: 700">Genres:</p>
-      <!-- <p v-for="genre in movie.genre_names" v-bind:key="genre">{{ genre }}</p>  -->
+      <p v-for="genre in movie.genre_names" v-bind:key="genre">{{ genre }}</p>  
       <p v-for="genre in movie.genres" v-bind:key="genre.id">{{ genre.name }}</p>
 
       <button v-on:click="showMovie(movie)">More Info!</button>
@@ -70,7 +95,7 @@
 
         <button>Close</button>
       </form>
-    </dialog>
+    </dialog> -->
   </div>
 </template>
 
