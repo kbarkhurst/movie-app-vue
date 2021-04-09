@@ -14,16 +14,17 @@
               <label>Title:</label>
               <input type="text" class="form-control" v-model="title" />
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
               <label>Year:</label>
               <input type="text" class="form-control" v-model="year" />
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
               <label>Plot:</label>
-              <input type="text" class="form-control" v-model="plot" />
+              <textarea rows="3" class="form-control" v-model="plot" @keyup="remaincharCount()" />
+              <span>{{ remaincharactersText }}</span>
             </div>
 
-            <input type="submit" class="btn btn-primary my-2" value="Submit" />
+            <input type="submit" class="btn btn-primary my-3" value="Submit" />
           </form>
         </div>
       </div>
@@ -42,6 +43,9 @@ export default {
       year: "",
       plot: "",
       errors: [],
+      totalcharacter: 0,
+      maxcharacter: 140,
+      remaincharactersText: "Remaining 140 characters",
     };
   },
   created: function () {},
@@ -62,6 +66,17 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
+    },
+    charCount: function () {
+      this.totalcharacter = this.plot.length;
+    },
+    remaincharCount: function () {
+      if (this.plot.length > this.maxcharacter) {
+        this.remaincharactersText = "Exceeded " + this.maxcharacter + " characters limit.";
+      } else {
+        var remainCharacters = this.maxcharacter - this.plot.length;
+        this.remaincharactersText = "Remaining " + remainCharacters + " characters.";
+      }
     },
   },
 };
